@@ -339,7 +339,6 @@ void play() {
   draw_playfield();
   reset_players();
   spawn_item();
-  music_play(0);
   //creates a loop that can only be closed when player collides
   //with wall on any side, or tail
   // if player grabs token, screen refreshes and player enters
