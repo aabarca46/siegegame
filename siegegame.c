@@ -87,7 +87,7 @@ typedef struct {
 //TODO add multiple tokens
 Player players[2];
 
-#define START_SPEED 15
+#define START_SPEED 13
 #define MAX_SPEED 2
 #define Max_SCORE 9
 
