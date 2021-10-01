@@ -303,6 +303,7 @@ void title_screen(){
   vrambuf_flush();
   cputsxy(5,13,"Press Any key to Start!");
   vrambuf_flush();
+  music_stop();
 }
 
 //displays game over screen by clearing play screen
@@ -338,6 +339,7 @@ void play() {
   draw_playfield();
   reset_players();
   spawn_item();
+  music_play(0);
   //creates a loop that can only be closed when player collides
   //with wall on any side, or tail
   // if player grabs token, screen refreshes and player enters
