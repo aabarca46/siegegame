@@ -22,6 +22,12 @@ For more information, see "Making Arcade Games in C".
 #define COLS 32
 #define ROWS 27
 
+
+void __fastcall__famitone_update(void);
+//#link "famitone2.s"
+//#link "prime_music.s"
+
+extern char prime_music[];
 // read a character from VRAM.
 // this is tricky because we have to wait
 // for VSYNC to start, then set the VRAM
@@ -206,6 +212,7 @@ void declare_winner(byte winner) {
     draw_box(i,i,COLS-1-i,ROWS-1-i,BOX_CHARS);
     vrambuf_flush();
   }
+  music_stop();
   cputsxy(12,10,"Score:");
   cputcxy(12+7, 10, '0'+winner);
   vrambuf_flush();
@@ -291,6 +298,9 @@ void play_game() {
 }
 
 void main() {
+  famitone_init(prime_music);
+  nmi_set_callback(famitone_update);
+  music_play(0);
   joy_install (joy_static_stddrv);
   vrambuf_clear();
   set_vram_update(updbuf);
