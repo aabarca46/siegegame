@@ -301,7 +301,10 @@ void title_screen(){
   clrscr();
   draw_box(1,2,COLS-2,ROWS-1,BOX_CHARS);
   vrambuf_flush();
+  cputsxy(11,9,"Tron-o-Thon");
   cputsxy(5,13,"Press Any key to Start!");
+  cputsxy(2,19,"Created by Alessandro Abarca");
+  cputsxy(7,21,"and Anthony Moreno");
   vrambuf_flush();
   music_stop();
 }
